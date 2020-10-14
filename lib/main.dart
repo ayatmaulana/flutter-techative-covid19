@@ -1,10 +1,9 @@
-import 'package:CovidApp/app/home/ui/Home.dart';
-import 'package:CovidApp/app/stats/ui/stats.dart';
+import 'package:CovidApp/app/ui/Home.dart';
+import 'package:CovidApp/app/ui/stats.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:responsive_widgets/responsive_widgets.dart';
-import 'package:styled_widget/styled_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
@@ -65,11 +64,11 @@ class _NavigationState extends State<Navigation> {
   int _page = 0;
 
   Widget buildPage() {
-    if (_page == 0) {
-      return Home();
-    } else if (_page == 1) {
+    if (_page == 1) {
       return Statistic();
     }
+
+    return Home();
   }
 
   @override

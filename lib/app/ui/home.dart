@@ -1,8 +1,6 @@
 import 'package:CovidApp/shared/base_page.dart';
 import 'package:CovidApp/shared/load_svg.dart';
 import 'package:flutter/material.dart';
-import 'package:styled_widget/styled_widget.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:flutter/foundation.dart' show kIsWeb;
 // import 'dart:io' show Platform;
