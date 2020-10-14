@@ -1,3 +1,4 @@
+import 'package:CovidApp/shared/load_svg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -17,19 +18,20 @@ class _BasePageState extends State<BasePage> {
     return Scaffold(
         body: SingleChildScrollView(
             child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 25.0, vertical: 20.0),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          SvgPicture.asset(
-                            "assets/svg/menu.svg",
+                          LoadSvg(
+                            assetName: "assets/svg/menu.svg",
                             height: 25,
                           ),
-                          SvgPicture.asset(
-                            "assets/svg/notification.svg",
+                          LoadSvg(
+                            assetName: "assets/svg/notification.svg",
                             height: 35,
                           )
                         ],

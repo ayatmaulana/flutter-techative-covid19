@@ -1,7 +1,12 @@
 import 'package:CovidApp/shared/base_page.dart';
+import 'package:CovidApp/shared/load_svg.dart';
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+// import 'package:flutter/foundation.dart' show kIsWeb;
+// import 'dart:io' show Platform;
+import 'package:universal_platform/universal_platform.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -23,10 +28,10 @@ class _HomeState extends State<Home> {
       SizedBox(
         height: 30,
       ),
-      SvgPicture.asset(
-        "assets/svg/home_1.svg",
+      LoadSvg(
+        assetName: "assets/svg/home_1.svg",
         width: double.infinity,
-        height: 135,
+        height: 335.h,
       ),
       SizedBox(
         height: 30,
@@ -38,7 +43,7 @@ class _HomeState extends State<Home> {
           children: [
             Text(
               "Are you feeling Sick?",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
             ),
             SizedBox(
               height: 10,
@@ -47,7 +52,7 @@ class _HomeState extends State<Home> {
               "If you feeling sick with any of covid19 symptomps please call or SMS us immediately for help",
               style: TextStyle(
                   fontWeight: FontWeight.normal,
-                  fontSize: 16,
+                  fontSize: 18,
                   color: Color(0xFF61688B)),
             ),
           ],
@@ -57,15 +62,20 @@ class _HomeState extends State<Home> {
         height: 30,
       ),
       Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: UniversalPlatform.isMacOS || UniversalPlatform.isWeb
+            ? MainAxisAlignment.start
+            : MainAxisAlignment.spaceBetween,
         children: [
-          SvgPicture.asset(
-            "assets/svg/callnow.svg",
-            height: 51,
+          LoadSvg(
+            assetName: "assets/svg/callnow.svg",
+            height: 100.h,
           ),
-          SvgPicture.asset(
-            "assets/svg/smsnow.svg",
-            height: 51,
+          SizedBox(
+            width: 10,
+          ),
+          LoadSvg(
+            assetName: "assets/svg/smsnow.svg",
+            height: 100.h,
           )
         ],
       ),
@@ -86,9 +96,9 @@ class _HomeState extends State<Home> {
             width: 90,
             child: Column(
               children: [
-                SvgPicture.asset(
-                  "assets/svg/avoid_close_contact.svg",
-                  height: 110,
+                LoadSvg(
+                  assetName: "assets/svg/avoid_close_contact.svg",
+                  height: 210.h,
                 ),
                 Center(
                   child: Text(
@@ -104,9 +114,9 @@ class _HomeState extends State<Home> {
             width: 90,
             child: Column(
               children: [
-                SvgPicture.asset(
-                  "assets/svg/clean_your_hand.svg",
-                  height: 110,
+                LoadSvg(
+                  assetName: "assets/svg/clean_your_hand.svg",
+                  height: 210.h,
                 ),
                 Center(
                   child: Text(
@@ -122,9 +132,9 @@ class _HomeState extends State<Home> {
             width: 90,
             child: Column(
               children: [
-                SvgPicture.asset(
-                  "assets/svg/wear_face_mask.svg",
-                  height: 110,
+                LoadSvg(
+                  assetName: "assets/svg/wear_face_mask.svg",
+                  height: 210.h,
                 ),
                 Center(
                   child: Text(
