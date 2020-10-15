@@ -12,7 +12,7 @@ class Statistic extends StatefulWidget {
 }
 
 class _StatisticState extends State<Statistic> {
-  bool showLoading;
+  bool showLoading = true;
   Stats covidStats;
 
   @override
@@ -131,9 +131,12 @@ class _StatisticState extends State<Statistic> {
                   buildStats(
                       name: 'Active',
                       // ignore: null_aware_before_operator
-                      value: (covidStats?.numbers?.infected -
-                          covidStats?.numbers?.recovered -
-                          covidStats?.numbers?.fatal),
+                      value: covidStats?.numbers != null
+                          // ignore: null_aware_before_operator
+                          ? (covidStats?.numbers?.infected -
+                              covidStats?.numbers?.recovered -
+                              covidStats?.numbers?.fatal)
+                          : 0,
                       color: Color(0xFF4DB5FF)),
                   SizedBox(width: 15),
                   buildStats(
@@ -168,7 +171,9 @@ class _StatisticState extends State<Statistic> {
                           offset: Offset(0, 3), // changes position of shadow
                         ),
                       ]),
-                  child: _getDefaultCategoryAxisChart())
+                  child: covidStats != null
+                      ? _getDefaultCategoryAxisChart()
+                      : Center())
             ],
           );
   }
